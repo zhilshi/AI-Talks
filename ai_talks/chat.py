@@ -21,7 +21,7 @@ tg_svg: Path = icons_dir / "tg.svg"
 PAGE_TITLE: str = "AI Talks"
 PAGE_ICON: str = "🤖"
 LANG_EN: str = "En"
-LANG_RU: str = "中文"
+LANG_RU: str = "Ru"
 AI_MODEL_OPTIONS: list[str] = [
     "gpt-3.5-turbo",
     "gpt-4",
@@ -41,7 +41,7 @@ selected_lang = option_menu(
     options=[LANG_EN, LANG_RU, ],
     icons=["globe2", "translate"],
     menu_icon="cast",
-    default_index=1,
+    default_index=0,
     orientation="horizontal",
     styles=HEADER_STYLES
 )
@@ -95,7 +95,7 @@ def run_agi():
     match selected_lang:
         case "En":
             st.session_state.locale = en
-        case "中文":
+        case "Ru":
             st.session_state.locale = ru
         case _:
             st.session_state.locale = en
@@ -109,7 +109,7 @@ def run_agi():
         ],
         icons=["info-circle", "chat-square-text", "piggy-bank"],  # https://icons.getbootstrap.com/
         menu_icon="cast",
-        default_index=1,
+        default_index=0,
         orientation="horizontal",
         styles=FOOTER_STYLES
     )
