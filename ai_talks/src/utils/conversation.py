@@ -70,7 +70,7 @@ def show_gpt_conversation() -> None:
         if ai_content:
             show_chat(ai_content, st.session_state.user_text)
             st.divider()
-            show_audio_player(ai_content)
+            # show_audio_player(ai_content)
     except InvalidRequestError as err:
         if err.code == "context_length_exceeded":
             st.session_state.messages.pop(1)

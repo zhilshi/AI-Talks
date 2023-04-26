@@ -77,12 +77,19 @@ def main() -> None:
             options=(st.session_state.locale.radio_text1, st.session_state.locale.radio_text2),
             horizontal=True,
         )
-        match role_kind:
-            case st.session_state.locale.radio_text1:
-                c2.selectbox(label=st.session_state.locale.select_placeholder2, key="role",
+        if role_kind == st.session_state.locale.radio_text1:
+            c2.selectbox(label=st.session_state.locale.select_placeholder2, key="role",
                              options=st.session_state.locale.ai_role_options)
-            case st.session_state.locale.radio_text2:
-                c2.text_input(label=st.session_state.locale.select_placeholder3, key="role")
+            
+        if role_kind == st.session_state.locale.radio_text2:
+            c2.text_input(label=st.session_state.locale.select_placeholder3, key="role")
+
+        # match role_kind:
+        #     case st.session_state.locale.radio_text1:
+        #         c2.selectbox(label=st.session_state.locale.select_placeholder2, key="role",
+        #                      options=st.session_state.locale.ai_role_options)
+        #     case st.session_state.locale.radio_text2:
+        #         c2.text_input(label=st.session_state.locale.select_placeholder3, key="role")
 
     if st.session_state.user_text:
         show_conversation()
